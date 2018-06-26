@@ -1,14 +1,18 @@
-h1 h2 h3 {
+h1, h2, h3 {
     font-family: 'Lucida Console';
+    color: white;
 }
 
 .character {
-    border: green;
+    background: white;
+    border: 1px solid green;
+    float: left;
     padding: 13px;
+    width: 20%;
 }
 
-.clearfix::after {
+.clearfix {
+    background-image: url("../images/fantasy-flight-games-header-1522x864.jpg");
     content: "";
-    display: block;
-    clear: both;
+    height: 100vh;
 }
