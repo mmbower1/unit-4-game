@@ -1,18 +1,35 @@
+
 h1, h2, h3 {
-    font-family: 'Lucida Console';
     color: white;
+    font-family: 'Lucida Console';
+    font-size: 28px;
 }
 
 .character {
     background: white;
-    border: 1px solid green;    
+    border: 1px solid green;
+    box-sizing: 5px; 
+    font-family: 'Lucida Console';
+    font-size: 13px;   
     float: left;
+    height: 180px;
     padding: 13px;
-    width: 20%;
+    width: 155px;
 }
 
 .clearfix {
     background-image: url("../images/fantasy-flight-games-header-1522x864.jpg");
+    background-size: cover;
     content: "";
-    height: 100vh;
+    height: 130vh;
+    width: 300vh;
+}
+
+#fightSection {
+    clear: both;
+}
+
+#yourCharacterRow {
+    margin-left: 13px;
+    color: black;
 }
