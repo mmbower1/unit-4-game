@@ -3,6 +3,7 @@ var player1_hp;
 var attacker = false;
 var defender = false;
 var defender_hp;
+var defenderName;
 
 //each character has three attributes: healthPoints, attackPower, counterAttackPower
 
@@ -13,10 +14,11 @@ $(document).ready(function() {
 
         //alert($(this).attr('data'));
         if(!attacker) {
-
+            $(this).attr('attacker', true);
             $('.character').each(function() {
                 console.log(this);
                 $(this).appendTo('#waiting-room');
+
             });
 
             $('#yourCharacterRow').append($(this));
@@ -27,22 +29,25 @@ $(document).ready(function() {
 
         } // if statement ends 
         else {
-            $('#defenderRow').append($(this));
-            attacker = true;
-            defender = $(this).data('name');
-            defender_hp = $(this).data('hp');
-            console.log(defender)
-
-
-
-
-
-        } // else
+            if (!defender) {
+                if($(this).attr('attacker') === 'false') {
+                    console.log($(this).attr('attacker'));
+                    $('#defenderRow').append($(this));
+                    defender = true;
+                    defenderName = $(this).data('name');
+                    defender_hp = $(this).data('hp');
+                    console.log(defender);
+                }
+                
+                }
+            }
+         }) //else ends
         
-    }); // character click ends
+    //}); //character click ends
 
     //player now is able to click 'attack' button. Defender loses hp. Points are displayed at bottom 
     $('.button').on('click', function() {
+        $
         console.log('attack');
     }); // button.click ends
 
@@ -61,7 +66,7 @@ $(document).ready(function() {
 
     //the Health Points, Attack Power and Counter Attack Power of each character must differ.
 
-}); // document.ready ends
+});// document.ready ends
 
 
 
