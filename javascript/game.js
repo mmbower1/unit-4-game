@@ -1,9 +1,11 @@
 var player1;
 var player1_hp;
+var player_attack;
 var attacker = false;
 var defender = false;
 var defender_hp;
 var defenderName;
+var defender_attack;
 
 //each character has three attributes: healthPoints, attackPower, counterAttackPower
 
@@ -25,6 +27,7 @@ $(document).ready(function() {
             attacker = true;
             player1 = $(this).data('name');
             player1_hp = $(this).data('hp');
+            player_attack = $(this).data('attack');
             console.log(player1_hp);
 
         } // if statement ends 
@@ -36,6 +39,7 @@ $(document).ready(function() {
                     defender = true;
                     defenderName = $(this).data('name');
                     defender_hp = $(this).data('hp');
+                    defender_attack = $(this).attr('data-counterAttack');
                     console.log(defender);
                 }
                 
@@ -47,13 +51,18 @@ $(document).ready(function() {
 
     //player now is able to click 'attack' button. Defender loses hp. Points are displayed at bottom 
     $('.button').on('click', function() {
-        $
+        defender_hp = defender_hp - player_attack;
+        player1_hp = player1_hp - defender_attack;
+        player_attack = player_attack + $("#" + player1).data('attack');
+        console.log(player_attack);
+        $("." + player1).text(player1_hp);
+        console.log(typeof defender_attack);
+        $("." + defenderName).text(defender_hp);
         console.log('attack');
     }); // button.click ends
 
     //each time the player attacks, their character's Attack Power increases by its base Attack Power.
     //EX: base = (6) + 6 = 12 + 6 = 18 + 6 = 24 + 6 = 30
-
     //defender is attacked and instantly counter-attacks, player loses hp, points displayed at players section
 
     //after defender is defeated click on next defender
