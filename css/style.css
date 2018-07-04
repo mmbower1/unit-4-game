@@ -33,3 +33,7 @@ h1, h2, h3 {
     margin-left: 13px;
     color: black;
 }
+
+.win-loss-row {
+    color: white;
+}
